@@ -22,13 +22,7 @@ const HomePage = () => {
         Select a topic, start the quiz, and see how many questions you can answer correctly. Track your progress, get instant feedback, and discover your final score at the end.
         Think you have what it takes to score high? Let’s find out!</p>
       <button>START QUIZ</button>
-      {/* <p>Select a quiz topic to get started:</p>
-      <ul>
-        <li><Link to="/quiz?category=9">General Knowledge</Link></li>
-        <li><Link to="/quiz?category=17">Science</Link></li>
-        <li><Link to="/quiz?category=11">Entertainment</Link></li>
-      </ul> */}
-    </div>
+          </div>
   );
 };
 
