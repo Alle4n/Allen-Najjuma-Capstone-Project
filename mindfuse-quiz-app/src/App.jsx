@@ -5,12 +5,14 @@ import HomePage from './components/HomePage';
 import QuizPage from './components/QuizPage';
 import Header from './components/Header';
 import ScorePage from './components/ScorePage';
+import NavBar from './components/Navigation';
 
 
 function App() {
   return (
     <Router>
       <Header />
+      <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/quiz" element={<QuizPage />} />

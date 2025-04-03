@@ -86,7 +86,6 @@ const App = () => {
 
   return (
     <div>
-      <h1>Trivia App</h1>
       {!questions.length && !loading && !error && (
         <div>
           <h2>Select a Category:</h2>

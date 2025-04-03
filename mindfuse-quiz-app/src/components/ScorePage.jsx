@@ -3,7 +3,7 @@ import React from 'react';
 
 const ScorePage = ({ correctAnswers, incorrectAnswers, total, onRestart, overallCorrectAnswers, totalQuizzes }) => {
   return (
-    <div className="score-page">
+      <div className="score-page">
       <h1>Quiz Completed!</h1>
       <p>Your score: {correctAnswers}/{total}</p>
       <p>Correct Answers: {correctAnswers}</p>
