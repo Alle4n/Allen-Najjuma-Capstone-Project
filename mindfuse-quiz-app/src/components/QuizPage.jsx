@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Loader from './Loader'; // Import the Loader component
+import QuestionCard from './QuestionCard'; // Import the QuestionCard component
 
 const App = () => {
   const [categories, setCategories] = useState([]);
@@ -7,6 +8,7 @@ const App = () => {
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -41,6 +43,10 @@ const App = () => {
     }
   }, [selectedCategory]);
 
+  const handleNextQuestion = () => {
+    setCurrentQuestionIndex((prevIndex) => (prevIndex + 1) % questions.length); // Loop back to first question when last is reached
+  };
+
   return (
     <div>
       <h1>Trivia App</h1>
@@ -57,16 +63,15 @@ const App = () => {
         </select>
       </div>
 
-      {/* Show loader if data is still loading */}
       {loading && <Loader />}
       {error && <p>{error}</p>}
 
-      {questions.length > 0 && (
-        <ul>
-          {questions.map((question, index) => (
-            <li key={index}>{question.question}</li>
-          ))}
-        </ul>
+      {questions.length > 0 && !loading && !error && (
+        <QuestionCard
+          question={questions[currentQuestionIndex]}
+          onNextQuestion={handleNextQuestion}
+          questionIndex={currentQuestionIndex}
+        />
       )}
     </div>
   );
