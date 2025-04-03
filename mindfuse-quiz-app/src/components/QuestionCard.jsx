@@ -4,15 +4,16 @@ const QuestionCard = ({ question, onNextQuestion, questionIndex }) => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isAnswered, setIsAnswered] = useState(false);
 
-  // Shuffle options for random order
   const allOptions = [...question.incorrect_answers, question.correct_answer];
   const shuffledOptions = allOptions.sort(() => Math.random() - 0.5);
 
-  // Handle option selection
   const handleOptionClick = (option) => {
     if (!isAnswered) {
       setSelectedAnswer(option);
       setIsAnswered(true);
+      // Check if the selected answer is correct
+      const isCorrect = option === question.correct_answer;
+      onNextQuestion(isCorrect); // Pass the result to the parent
     }
   };
 
@@ -28,12 +29,12 @@ const QuestionCard = ({ question, onNextQuestion, questionIndex }) => {
             onClick={() => handleOptionClick(option)}
             className={selectedAnswer === option ? 'selected' : ''}
             dangerouslySetInnerHTML={{ __html: option }}
-            disabled={isAnswered}  // Disable options after answering
+            disabled={isAnswered}
           />
         ))}
       </div>
 
-      <button onClick={onNextQuestion} disabled={!isAnswered}>
+      <button onClick={() => onNextQuestion(false)} disabled={!isAnswered}>
         Next Question
       </button>
     </div>
