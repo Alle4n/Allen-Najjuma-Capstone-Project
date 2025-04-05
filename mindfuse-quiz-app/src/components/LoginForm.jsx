@@ -1,26 +1,22 @@
 import React, { useState } from 'react';
 
-function SignupForm() {
+function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      console.error('Passwords do not match');
-      return;
-    }
-    console.log('Signup submitted with:', { email, password });
+    // Handle login logic here
+    console.log('Login submitted with:', { email, password });
   };
 
   const handleAlert = () => {
     alert('Feature Coming Soon');
-  };
+};
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold mb-4">Signup</h2>
+      <h2 className="text-2xl font-semibold mb-4">Login</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
@@ -46,28 +42,12 @@ function SignupForm() {
             required
           />
         </div>
-        <div className="mb-4">
-          <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            className="mt-1 p-2 w-full border rounded"
-            placeholder="Confirm your password"
-            required
-          />
-        </div>
-        <button 
-          type="submit" 
-          className="w-full p-2 bg-purple-950 text-white rounded"
-          onClick={handleAlert}
-        >
-          Signup
+        <button onClick={handleAlert} type="submit" className="w-full p-2 bg-purple-600 text-white rounded">
+          Login
         </button>
       </form>
     </div>
   );
 }
 
-export default SignupForm;
+export default LoginForm;
