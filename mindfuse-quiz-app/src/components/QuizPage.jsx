@@ -69,9 +69,9 @@ const App = () => {
     setCorrectAnswers(0);
     setIncorrectAnswers(0);
     setQuizFinished(false);
-    setQuestions([]); // Reset questions
-    setOverallCorrectAnswers(0); // Optionally reset overall score
-    setTotalQuizzes(0); // Optionally reset quiz count
+    setQuestions([]);
+    setOverallCorrectAnswers(0);
+    setTotalQuizzes(0);
   };
 
   const handleRestart = () => {
@@ -88,7 +88,6 @@ const App = () => {
 
   return (
     <div className="flex flex-col items-center justify-between bg-gray-100 p-6">
-      {/* Category Selection */}
       {!questions.length && !loading && !error && (
         <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
           <h2 className="text-2xl font-semibold mb-4">Select a Category:</h2>
@@ -107,13 +106,10 @@ const App = () => {
         </div>
       )}
 
-      {/* Loading State */}
       {loading && <Loader />}
 
-      {/* Error State */}
       {error && <p className="text-red-600 mt-4">{error}</p>}
 
-      {/* Quiz View */}
       {questions.length > 0 && !loading && !error && !quizFinished && currentQuestionIndex < questions.length && (
         <div className="w-full max-w-md">
           <QuestionCard
@@ -124,7 +120,6 @@ const App = () => {
         </div>
       )}
 
-      {/* Score View */}
       {quizFinished && !loading && !error && (
         <div className="w-full max-w-md">
           <ScorePage

@@ -6,13 +6,12 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic here
     console.log('Login submitted with:', { email, password });
   };
 
   const handleAlert = () => {
     alert('Feature Coming Soon');
-};
+  };
 
   return (
     <div>
