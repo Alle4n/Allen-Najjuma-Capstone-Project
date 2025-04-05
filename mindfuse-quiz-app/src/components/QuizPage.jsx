@@ -87,7 +87,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
+    <div className="flex flex-col items-center justify-between bg-gray-100 p-6">
       {/* Category Selection */}
       {!questions.length && !loading && !error && (
         <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
@@ -115,23 +115,27 @@ const App = () => {
 
       {/* Quiz View */}
       {questions.length > 0 && !loading && !error && !quizFinished && currentQuestionIndex < questions.length && (
-        <QuestionCard
-          question={questions[currentQuestionIndex]}
-          onNextQuestion={handleNextQuestion}
-          questionIndex={currentQuestionIndex}
-        />
+        <div className="w-full max-w-md">
+          <QuestionCard
+            question={questions[currentQuestionIndex]}
+            onNextQuestion={handleNextQuestion}
+            questionIndex={currentQuestionIndex}
+          />
+        </div>
       )}
 
       {/* Score View */}
       {quizFinished && !loading && !error && (
-        <ScorePage
-          correctAnswers={correctAnswers}
-          incorrectAnswers={incorrectAnswers}
-          total={questions.length}
-          overallCorrectAnswers={overallCorrectAnswers}
-          totalQuizzes={totalQuizzes}
-          onRestart={handleRestart}
-        />
+        <div className="w-full max-w-md">
+          <ScorePage
+            correctAnswers={correctAnswers}
+            incorrectAnswers={incorrectAnswers}
+            total={questions.length}
+            overallCorrectAnswers={overallCorrectAnswers}
+            totalQuizzes={totalQuizzes}
+            onRestart={handleRestart}
+          />
+        </div>
       )}
     </div>
   );
