@@ -66,10 +66,12 @@ const App = () => {
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
     setCurrentQuestionIndex(0);
-    setQuestions([]);
     setCorrectAnswers(0);
     setIncorrectAnswers(0);
     setQuizFinished(false);
+    setQuestions([]); // Reset questions
+    setOverallCorrectAnswers(0); // Optionally reset overall score
+    setTotalQuizzes(0); // Optionally reset quiz count
   };
 
   const handleRestart = () => {
@@ -86,6 +88,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
+      {/* Category Selection */}
       {!questions.length && !loading && !error && (
         <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
           <h2 className="text-2xl font-semibold mb-4">Select a Category:</h2>
@@ -104,10 +107,13 @@ const App = () => {
         </div>
       )}
 
+      {/* Loading State */}
       {loading && <Loader />}
 
+      {/* Error State */}
       {error && <p className="text-red-600 mt-4">{error}</p>}
 
+      {/* Quiz View */}
       {questions.length > 0 && !loading && !error && !quizFinished && currentQuestionIndex < questions.length && (
         <QuestionCard
           question={questions[currentQuestionIndex]}
@@ -116,6 +122,7 @@ const App = () => {
         />
       )}
 
+      {/* Score View */}
       {quizFinished && !loading && !error && (
         <ScorePage
           correctAnswers={correctAnswers}

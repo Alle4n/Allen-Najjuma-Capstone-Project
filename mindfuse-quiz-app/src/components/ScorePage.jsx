@@ -1,11 +1,19 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
-const ScorePage = ({ correctAnswers, incorrectAnswers, total, overallCorrectAnswers, totalQuizzes }) => {
+const ScorePage = ({
+  correctAnswers,
+  incorrectAnswers,
+  total,
+  overallCorrectAnswers,
+  totalQuizzes,
+  onRestart, // Ensure the onRestart function is passed correctly
+}) => {
   const navigate = useNavigate(); // Initialize useNavigate
 
+  // Function to navigate to the home page
   const goToHomePage = () => {
-    navigate('/'); // Navigate to the home page (you can change '/' to whatever route you want to go to)
+    navigate('/'); // Navigate to the home page (you can change '/' to your desired route)
   };
 
   return (
@@ -24,12 +32,19 @@ const ScorePage = ({ correctAnswers, incorrectAnswers, total, overallCorrectAnsw
           <p className="text-lg text-gray-700">Total Quizzes Completed: <span className="font-bold text-purple-600">{totalQuizzes}</span></p>
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-8 text-center space-x-32">
           <button
-            onClick={goToHomePage} // Use the new goToHomePage function here
-            className="bg-purple-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-purple-700 transition duration-300"
+            onClick={goToHomePage} // Navigate to home page
+            className="bg-purple-950 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-300 transition duration-300"
           >
             Go to Home
+          </button>
+          
+          <button
+            onClick={onRestart} // Restart the quiz
+            className="bg-purple-950 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-300 transition duration-300"
+          >
+            Restart
           </button>
         </div>
       </div>
