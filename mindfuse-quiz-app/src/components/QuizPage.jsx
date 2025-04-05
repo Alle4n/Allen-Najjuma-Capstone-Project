@@ -85,11 +85,15 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
       {!questions.length && !loading && !error && (
-        <div>
-          <h2>Select a Category:</h2>
-          <select onChange={handleCategoryChange} value={selectedCategory}>
+        <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+          <h2 className="text-2xl font-semibold mb-4">Select a Category:</h2>
+          <select
+            onChange={handleCategoryChange}
+            value={selectedCategory}
+            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+          >
             <option value="" disabled>Select a category</option>
             {categories.map((category) => (
               <option key={category.id} value={category.id}>
@@ -99,8 +103,11 @@ const App = () => {
           </select>
         </div>
       )}
+
       {loading && <Loader />}
-      {error && <p>{error}</p>}
+
+      {error && <p className="text-red-600 mt-4">{error}</p>}
+
       {questions.length > 0 && !loading && !error && !quizFinished && currentQuestionIndex < questions.length && (
         <QuestionCard
           question={questions[currentQuestionIndex]}
@@ -108,6 +115,7 @@ const App = () => {
           questionIndex={currentQuestionIndex}
         />
       )}
+
       {quizFinished && !loading && !error && (
         <ScorePage
           correctAnswers={correctAnswers}
