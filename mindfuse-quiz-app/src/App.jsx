@@ -6,6 +6,7 @@ import QuizPage from './components/QuizPage';
 import Header from './components/Header';
 import ScorePage from './components/ScorePage';
 import NavBar from './components/Navigation';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/score" element={<ScorePage />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

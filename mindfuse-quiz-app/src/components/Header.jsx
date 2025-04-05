@@ -23,7 +23,7 @@ function Header() {
 
   return (
     <div>
-      <header className='inline-flex items-center justify-between p-5 pl-20 pr-20 space-x-96 bg-purple-900 w-full'>
+      <header className='inline-flex items-center justify-between p-5 space-x-96 bg-purple-900 w-full'>
         <h1 className='text-3xl text-gray-300 font-bold italic'>MindFuse Quiz</h1>
         <div className='flex space-x-20 mr-auto'>
           <button onClick={handleSignupClick} className='bg-purple-300 text-black p-2 rounded'>

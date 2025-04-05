@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <nav className="bg-purple-300 font-bold text-2xl p-16 mb-16 w-full">
+    <nav className="bg-purple-300 font-bold text-2xl p-16 mb-16">
       <div className="max-w-7xl mx-auto text-center">
         <ul className="flex justify-center space-x-12">
           <li>
