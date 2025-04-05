@@ -33,7 +33,7 @@ const QuestionCard = ({ question, onNextQuestion, questionIndex }) => {
           <label
             key={index}
             className={`block cursor-pointer mt-2 flex items-center space-x-3 p-2 rounded-lg
-              ${selectedAnswer === option ? 'bg-blue-600 text-white' : 'text-gray-700'}`}
+              ${selectedAnswer === option ? '' : 'text-gray-500'}`}
           >
             <input
               type="radio"
@@ -53,7 +53,7 @@ const QuestionCard = ({ question, onNextQuestion, questionIndex }) => {
       <button
         onClick={handleNextQuestion}
         disabled={!selectedAnswer}
-        className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg disabled:bg-gray-400"
+        className="mt-4 px-6 py-2 bg-purple-950 text-white rounded-lg disabled:bg-gray-400"
       >
         Next Question
       </button>
