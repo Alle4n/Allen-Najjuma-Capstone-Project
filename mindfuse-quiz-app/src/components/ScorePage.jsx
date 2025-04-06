@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
 const ScorePage = ({
   correctAnswers,
@@ -7,13 +7,12 @@ const ScorePage = ({
   total,
   overallCorrectAnswers,
   totalQuizzes,
-  onRestart, // Ensure the onRestart function is passed correctly
+  onRestart,
 }) => {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
-  // Function to navigate to the home page
   const goToHomePage = () => {
-    navigate('/'); // Navigate to the home page (you can change '/' to your desired route)
+    navigate('/');
   };
 
   return (
@@ -32,16 +31,16 @@ const ScorePage = ({
           <p className="text-lg text-gray-700">Total Quizzes Completed: <span className="font-bold text-purple-600">{totalQuizzes}</span></p>
         </div>
 
-        <div className="mt-8 text-center space-x-20">
+        <div className="flex flex-col space-y-8 mt-8 text-center sm:flex-row sm:space-x-20">
           <button
-            onClick={goToHomePage} // Navigate to home page
+            onClick={goToHomePage}
             className="bg-purple-950 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-300 transition duration-300"
           >
             Go to Home
           </button>
           
           <button
-            onClick={onRestart} // Restart the quiz
+            onClick={onRestart}
             className="bg-purple-950 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-300 transition duration-300"
           >
             Restart

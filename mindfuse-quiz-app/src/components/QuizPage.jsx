@@ -88,10 +88,10 @@ const App = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-between bg-gray-100 p-6">
+    <div className="flex flex-col items-center justify-between bg-gray-100 p-6 sm:p-8 lg:p-10">
       {!questions.length && !loading && !error && (
-        <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-          <h2 className="text-2xl font-semibold mb-4">Select a Category:</h2>
+        <div className="bg-white shadow-lg rounded-lg p-8 w-full sm:max-w-lg md:max-w-xl">
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4 text-center">Select a Category:</h2>
           <select
             onChange={handleCategoryChange}
             value={selectedCategory}
@@ -99,7 +99,7 @@ const App = () => {
           >
             <option value="" disabled>Select a category</option>
             {categories.map((category) => (
-              <option key={category.id} value={category.id}> 
+              <option key={category.id} value={category.id}>
                 {category.name}
               </option>
             ))}
@@ -112,12 +112,11 @@ const App = () => {
       {error && <p className="text-red-600 mt-4">{error}</p>}
 
       {questions.length > 0 && !loading && !error && !quizFinished && currentQuestionIndex < questions.length && (
-        <div className="w-full max-w-md">
+        <div className="w-full sm:max-w-lg md:max-w-xl">
           <ProgressBar
-          currentQuestionIndex={currentQuestionIndex}
-          totalQuestions={questions.length}
+            currentQuestionIndex={currentQuestionIndex}
+            totalQuestions={questions.length}
           />
-          
           <QuestionCard
             question={questions[currentQuestionIndex]}
             onNextQuestion={handleNextQuestion}
@@ -127,7 +126,7 @@ const App = () => {
       )}
 
       {quizFinished && !loading && !error && (
-        <div className="w-full max-w-md">
+        <div className="w-full sm:max-w-lg md:max-w-xl">
           <ScorePage
             correctAnswers={correctAnswers}
             incorrectAnswers={incorrectAnswers}
