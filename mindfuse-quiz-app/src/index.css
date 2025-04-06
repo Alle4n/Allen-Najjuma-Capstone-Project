@@ -107,3 +107,9 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+/* Example in global or component-specific CSS file */
+select:focus {
+  outline: none;
+  border-color: #6b46c1; /* Purple 500 */
+  box-shadow: 0 0 0 2px rgba(107, 70, 193, 0.5); /* Focus ring */
+}

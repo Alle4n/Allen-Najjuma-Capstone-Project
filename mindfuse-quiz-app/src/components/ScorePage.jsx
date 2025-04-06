@@ -32,7 +32,7 @@ const ScorePage = ({
           <p className="text-lg text-gray-700">Total Quizzes Completed: <span className="font-bold text-purple-600">{totalQuizzes}</span></p>
         </div>
 
-        <div className="mt-8 text-center space-x-32">
+        <div className="mt-8 text-center space-x-20">
           <button
             onClick={goToHomePage} // Navigate to home page
             className="bg-purple-950 text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-300 transition duration-300"

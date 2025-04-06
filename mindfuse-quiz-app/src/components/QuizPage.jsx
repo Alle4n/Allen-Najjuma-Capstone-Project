@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Loader from './Loader';
 import QuestionCard from './QuestionCard';
 import ScorePage from './ScorePage';
+import ProgressBar from './ProgressBar';
 
 const App = () => {
   const [categories, setCategories] = useState([]);
@@ -94,11 +95,11 @@ const App = () => {
           <select
             onChange={handleCategoryChange}
             value={selectedCategory}
-            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus-visible:ring-2"
           >
             <option value="" disabled>Select a category</option>
             {categories.map((category) => (
-              <option key={category.id} value={category.id}>
+              <option key={category.id} value={category.id}> 
                 {category.name}
               </option>
             ))}
@@ -112,6 +113,11 @@ const App = () => {
 
       {questions.length > 0 && !loading && !error && !quizFinished && currentQuestionIndex < questions.length && (
         <div className="w-full max-w-md">
+          <ProgressBar
+          currentQuestionIndex={currentQuestionIndex}
+          totalQuestions={questions.length}
+          />
+          
           <QuestionCard
             question={questions[currentQuestionIndex]}
             onNextQuestion={handleNextQuestion}
