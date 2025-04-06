@@ -88,7 +88,7 @@ const App = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-between bg-gray-100 p-6 sm:p-8 lg:p-10">
+    <div className="flex flex-col items-center justify-between bg-gray-100 p-6 sm:p-8 lg:p-10 w-full">
       {!questions.length && !loading && !error && (
         <div className="bg-white shadow-lg rounded-lg p-8 w-full sm:max-w-lg md:max-w-xl">
           <h2 className="text-2xl sm:text-3xl font-semibold mb-4 text-center">Select a Category:</h2>

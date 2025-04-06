@@ -16,7 +16,7 @@ const ScorePage = ({
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
+    <div className="max-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-lg">
         <h1 className="text-3xl font-semibold text-center mb-6">Quiz Completed!</h1>
         <div className="text-center mb-6">
